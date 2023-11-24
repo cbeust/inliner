@@ -1,15 +1,9 @@
 use std::fs;
 use clap::Parser;
 
-fn indent(line: &mut String, size: u8) {
-    for _ in 0..size {
-        line.push_str(" ");
-    }
-}
-
 #[derive(Parser)]
 #[command(author, version, about)]
-/// Convert a binary file into a Rust array.
+/// Convert a file into a `const` Rust array for easier inclusion into source files.
 struct Args {
     #[arg(short, long, default_value_t = 80, help = "Max number of columns")]
     columns: usize,
@@ -21,6 +15,12 @@ struct Args {
     variable: Option<String>,
 
     file_name: String,
+}
+
+fn indent(line: &mut String, size: u8) {
+    for _ in 0..size {
+        line.push(' ');
+    }
 }
 
 fn main() {
@@ -43,6 +43,7 @@ fn main() {
     };
 
     println!("const {}: [u8; {}] = [", variable_name, bytes.len());
+
     let mut current_line = String::new();
     indent(&mut current_line, args.indent);
     for byte in bytes {
