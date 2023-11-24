@@ -14,7 +14,7 @@ Arguments:
 Options:
   -c, --columns <COLUMNS>              Max number of columns [default: 80]
   -i, --indent <INDENT>                Number of spaces for indentation [default: 4]
-  -v, --variable <VARIABLE_NAME>  Name of the variable [default: derived from the file name]
+  -v, --variable <VARIABLE>  Name of the variable [default: derived from the file name]
   -h, --help                           Print help
   -V, --version                        Print version
 ```
