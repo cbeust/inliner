@@ -31,27 +31,28 @@ fn main() {
     } else {
         let mut result = String::new();
         for c in args.file_name.clone().chars() {
-            if (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') {
-                result.push(c);
-            } else {
-                result.push('_');
-            }
+            result.push(
+                match c {
+                    'a'..='z' => { c.to_ascii_uppercase() }
+                    'A'..='Z' => { c }
+                    _ => { '_' }
+                }
+            )
         }
-        result.to_string()
+        result
     };
+
     println!("const {}: [u8; {}] = [", variable_name, bytes.len());
     let mut current_line = String::new();
     indent(&mut current_line, args.indent);
     for byte in bytes {
         let formatted_byte = format!("0x{:02X}, ", byte);
-        if current_line.len() + formatted_byte.len() < args.columns {
-            current_line.push_str(&formatted_byte);
-        } else {
+        if current_line.len() + formatted_byte.len() >= args.columns {
             println!("{}", current_line);
             current_line = String::new();
             indent(&mut current_line, args.indent);
-            current_line.push_str(&formatted_byte);
         }
+        current_line.push_str(&formatted_byte);
     }
     if ! current_line.is_empty() {
         println!("{}", current_line);
