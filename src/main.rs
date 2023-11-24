@@ -18,7 +18,7 @@ struct Args {
     indent: u8,
 
     #[arg(short, long, help = "Name of the variable [default: derived from the file name]")]
-    variable_name: Option<String>,
+    variable: Option<String>,
 
     file_name: String,
 }
@@ -26,7 +26,7 @@ struct Args {
 fn main() {
     let args = Args::parse();
     let bytes = fs::read(args.file_name.clone()).expect("Couldn't open file");
-    let variable_name = if let Some(name) = args.variable_name {
+    let variable_name = if let Some(name) = args.variable {
         name
     } else {
         let mut result = String::new();

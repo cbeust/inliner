@@ -14,7 +14,7 @@ Arguments:
 Options:
   -c, --columns <COLUMNS>              Max number of columns [default: 80]
   -i, --indent <INDENT>                Number of spaces for indentation [default: 4]
-  -v, --variable-name <VARIABLE_NAME>  Name of the variable [default: derived from the file name]
+  -v, --variable <VARIABLE_NAME>  Name of the variable [default: derived from the file name]
   -h, --help                           Print help
   -V, --version                        Print version
 ```
@@ -22,7 +22,7 @@ Options:
 For example:
 
 ```
-$ inliner --columns 60 --indent 2 -variable rom dsk.rom 
+$ inliner --columns 60 --indent 2 --variable rom dsk.rom 
 
 const rom: [u8; 237] = [
   0x23, 0x47, 0x68, 0x69, 0x64, 0x72, 0x61, 0x20, 0x4C,
