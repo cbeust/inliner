@@ -4,7 +4,7 @@
 file. This declaration can then be pasted into your Rust code.
 
 ```
-Convert a binary file into a Rust array.
+Convert a file into a `const` Rust array for easier inclusion into source files.
 
 Usage: inliner.exe [OPTIONS] <FILE_NAME>
 
