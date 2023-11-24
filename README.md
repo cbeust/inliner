@@ -1,6 +1,6 @@
 # Inliner
 
-`inliner` takes a file and outputs a Rust `const` variable declaration containing all the bytest in that
+`inliner` takes a file and outputs a Rust `const` variable declaration containing all the bytes in that
 file. This declaration can then be pasted into your Rust code.
 
 ```
