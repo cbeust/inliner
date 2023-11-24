@@ -6,6 +6,11 @@ file. This declaration can then be pasted into your Rust code.
 ```
 Convert a file into a `const` Rust array for easier inclusion into source files.
 
+"How about `include_bytes!()`?
+
+This macro requires you to have non source files in your source tree, which is not always desirable (the build
+can break if you move these files around, you might want to make these binary files not searchable, etc...).
+
 Usage: inliner.exe [OPTIONS] <FILE_NAME>
 
 Arguments:
