@@ -3,8 +3,6 @@
 `inliner` takes a file and outputs a Rust `const` variable declaration containing all the bytes in that
 file. This declaration can then be pasted into your Rust code.
 
-Convert a file into a `const` Rust array for easier inclusion into source files.
-
 _"How about `include_bytes!()`?"_
 
 This macro requires you to have non source files in your source tree, which is not always desirable (the build
